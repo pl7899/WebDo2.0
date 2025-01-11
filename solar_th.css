@@ -1,0 +1,49 @@
+/* 
+$Rev: 611 $ 
+*/
+:root {
+    --it:       #EEC3CA;
+    --it_rv:    #113C35;
+    --bi:       #FFE8F1;        
+    --bi_rv:    #00170E;
+    --bi2:      #FCD1D8;        
+    --bi2_rv:   #032E27;
+    --ey:       #574042;       
+    --ey_rv:    #A8BFBD;
+    --fl1:      #FEC3B3;       
+    --fl1_rv:   #013C4C;
+    --fl2:      #BF8172;       
+    --fl2_rv:   #407E8D;
+    --tn1:      #833D45;       
+    --tn1_rv:   #7CC2BA;
+    --hr1:      #694339;       
+    --hr1_rv:   #96BCC6;
+    --hr2:      #704139;         
+    --hr2_rv:   #8FBEC6; 
+    --ni:       #6A3A35;       
+    --ni_rv:    #95C5CA;
+    --bu1:		#313234;
+    --bu2:		#0F1c24;
+    --bu3:		#14191F;
+    --lt_gray:	#215C6C; 
+    --dk_gray:	#296371;
+
+    --background: var(--fl1_rv);
+    --update_background: var(--bu3);
+    --update_text: var(--ni_rv);
+
+	--disabledInput: var(--bi_rv);
+	--enabledInput: var(--tn1_rv);
+
+    --strong_text: var(--bi);
+    --medium_text: var(--fl1);
+    --weak_text: var(--hr1);
+
+    --button_dashes: var(--fl2_rv);
+    --button_color:  var(--ni_rv);
+    
+    --table_row_1_bg: var(--lt_gray);
+    --table_row_1_tx: var(--bu2);
+    --table_row_2_bg: var(--dk_gray);
+    --table_row_2_tx: var(--bu2);
+}

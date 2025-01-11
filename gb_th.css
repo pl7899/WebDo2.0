@@ -1,0 +1,88 @@
+/* 
+$Rev: 632 $ 
+*/
+:root {	
+    --light_color:		#ACB56B;
+    --mid_light_color:	#768448;
+    --mid_dark_color:	#3F503F;
+    --mid2_dark_color:	#2F402F;
+    --dark_color:		#243137;
+    
+    --display_black:	#403813;
+    --display_gray:		#483E0E;
+    --display_light_gray:	#5A5026;
+    --display_white:	#7C7A44;
+
+    --putty:			#95846F;
+    --beige:			#BCB69E;
+    --dark_blue:		#191E73;
+    --dark_purple:		#27285E;
+    --dark_red:			#810B47;
+    --off_white:		#D3CDB5;
+    --lt_gray:			#C7C4C1; 
+    --dk_gray:			#B4B3B1;
+    --gb_black:			#0B0C17;
+
+    --main_background: var(--lt_gray);
+    --main_text: var(--dark_purple);
+   
+    --strong_text: var(--dark_blue);
+    --medium_text: var(--mid_dark_green);
+    --weak_text: var(--off_white);
+        	
+	--calendar_background: var(--mid_light_color);
+	--calendar_header_buttons: var(--dark_color);
+	--calendar_header_background: var(--light_color);
+	--calendar_header_month_text: var(--dark_color);
+	--calendar_header_text: var(--gb_black);
+	--calendar_body_text: var(--light_color);
+	--calendar_not_this_month_dates_text: var(--light_color);
+	--calendar_this_month_dates_active: var(--gb_black);
+	--calendar_current_date_background: var(--gb_black);
+	--calendar_current_date_text: var(--light_color);
+	--calendar_hover_date_background: var(--lt_gray);
+	--calendar_hover_date_text: var(--dark_color);
+
+	--time_clock_text: var(--dark_red);
+	--time_date_text: var(--dark_blue);
+    
+    --button_dashes: var(--dk_gray);
+    --button_color:  var(--dark_red);
+	--button_text: var(--off_white); 
+	--button_hover_background: var(--lt_gray);
+	--button_hover_text: var(--display_black);
+	
+	--commandlist_highlight: var(--dark_red);
+
+	--input_focus_border: var(--dk_gray);
+	--input_focus_background: var(--lt_gray);
+	--input_focus_text: var(--gb_black);
+	--input_border: var(--lt_gray);
+	--input_background: var(--dk_gray);
+	--input_text: var(--gb_black);
+    
+	--tasklist_header_background: var(--dark_color);
+	--tasklist_header_text: var(--lt_gray);
+	--tasklist_hover_background: var(--beige);
+	--tasklist_hover_text: var(--gb_black);
+	--tasklist_row_1_bg: var(--mid2_dark_color);
+	--tasklist_row_2_bg: var(--mid_dark_color);
+	--tasklist_due_today: var(--dark_blue);
+	--tasklist_late_task: var(--dark_red);
+	--tasklist_priority_0: var(--light_color);
+	--tasklist_priority_1: var(--lt_gray);
+	--tasklist_priority_2: var(--dk_gray);
+	--tasklist_priority_3: var(--gb_black);
+	--tasklist_priority_4: var(--dark_color);
+	--tasklist_priority_5: var(--dark_color);
+		    
+    --taskpanel_header_background: var(--mid_light_color);
+    --taskpanel_header_text: var(--dark_color);
+    --taskpanel_background: var(--mid_dark_color);
+    --taskpanel_text: var(--light_color);
+
+    --taskpanel_notes_background: var(--mid2_dark_color);
+    --taskpanel_notes_text: var(--gb_black);
+    --taskpanel_notes_background_focus: var(--mid_light_color);
+    --taskpanel_notes_text_focus: var(--gb_black);    
+}
