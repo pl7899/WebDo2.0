@@ -16,6 +16,8 @@ $Rev: 632 $
     --strong_mid2_dark_color:	#606E63;
     --strong_dark_color:		#000000;
 
+    --highlight_gold:	#BB9754;
+
 	--row_1_color	#F7FBFF;
 	--row_2_color	#F5F9FD;
 
@@ -26,8 +28,8 @@ $Rev: 632 $
     
 	--tasklist_header_background: var(--strong_mid_light_color);
 	--tasklist_header_text: var(--weak_light_color);
-	--tasklist_hover_background: var(--weak_mid_light_color);
-	--tasklist_hover_text: var(--highlight_color);
+	--tasklist_hover_background: var(--highlight_gold);
+	--tasklist_hover_text: var(--strong_dark_color);
 	--tasklist_row_1_bg: var(--row_1_color);
 	--tasklist_row_2_bg: var(--row_2_color);
 	--tasklist_due_today: var(--highlight_color);

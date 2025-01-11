@@ -149,7 +149,7 @@
         for (var i = 0; i < this.monthData.date.length; i++) {
             if (i % 7 === 0) {
                 html += '<tr>';
-                html += '<td class="nice-date-picker-weekNumber">' + week(this.monthData.year, this.monthData.month, this.monthData.date[i].showDate) + '</td>';
+                html += '<td class="nice-date-picker-weekNumber">' + week(this.monthData.year, this.monthData.date[i].month, this.monthData.date[i].showDate) + '</td>';
             }
             html += '<td class="' + this.monthData.date[i].styleCls + '" data-date="' + this.monthData.year + '-' + this.monthData.month + '-' + this.monthData.date[i].showDate + '">' + this.monthData.date[i].showDate + '</td>';
             if (i % 7 === 6) {
@@ -234,12 +234,12 @@
     return niceDatePicker;
 }));
 
-function week(year,month,day) {
-    function serial(days) { return 86400000*days; }
-    function dateserial(year,month,day) { return (new Date(year,month-1,day).valueOf()); }
-    function weekday(date) { return (new Date(date)).getDay()+1; }
-    function yearserial(date) { return (new Date(date)).getFullYear(); }
-    var date = year instanceof Date ? year.valueOf() : typeof year === "string" ? new Date(year).valueOf() : dateserial(year,month,day), 
-        date2 = dateserial(yearserial(date - serial(weekday(date-serial(1))) + serial(4)),1,3);
-    return ~~((date - date2 + serial(weekday(date2) + 5))/ serial(7));
+function week(year, month, day) {
+	var oneJan =  new Date(year, 0, 1);   
+	var todayDate = new Date(year, month-1, day);	
+	// calculating number of days in given year before a given date   
+	var numberOfDays =  Math.floor((todayDate - oneJan) / (24 * 60 * 60 * 1000));   
+	// adding 1 since to current date and returns value starting from 0   
+	var result = Math.ceil(( todayDate.getDay() + 1 + numberOfDays) / 7);  
+	return result; 
 }

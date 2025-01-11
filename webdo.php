@@ -17,8 +17,12 @@
     var input = document;
     var commandLineMode;
     var lastProjectSetActive ="default";
+    var twoPartCommand = false;
     var todayDate = new Date();
 	fullYear = todayDate.getFullYear();
+	currentMonth = todayDate.getMonth()+1;
+	currentDateNumber = todayDate.getDate();
+    var currentWeek = week(fullYear, todayDate.getMonth()+1, (todayDate.getDate() - todayDate.getDay()));
 
     input.addEventListener("keyup", function(event)
     {
@@ -41,9 +45,14 @@
 	        }
 	        else if(event.keyCode === 50)
 	        {
-		        // the '@' key handler
+		        // the '@' key handler, actually '2'
 		        commandLineMode = "@";
 		        setupGenericInput("update the project for the task: <br>", "");
+	        }
+	        else if(event.keyCode === 56)
+	        {
+		        // the '*' key handler, actually the '8'
+				dumpAllTasks();
 	        }
 	        else if(event.keyCode === 190)
 	        {
@@ -56,6 +65,12 @@
 		        // the 'a' key handler
 		        commandLineMode = "A";
 		        displayStringAtGenericInput("Use '<' and '>' to view theme options: <br>");
+	        }
+	        else if(event.keyCode === 66)
+	        {
+		        // the 'b' key handler
+		        commandLineMode = "B";
+		        setupGenericInput("list tasks for single action separated by commas: <br>", "");
 	        }
 	        else if(event.keyCode === 67)
 	        {
@@ -85,8 +100,8 @@
 	        {
 		        // the 'G' key handler
 		        commandLineMode = "G";
-		        yearString = fullYear + "-";
-		        setupGenericInput("update the tarGet date YYYY-MM-DD:", yearString);
+		        fullDateString = fullYear + "-" + currentMonth + "-" + currentDateNumber;
+		        setupGenericInput("update the tarGet date YYYY-MM-DD:", fullDateString);
 	        }
 	        else if(event.keyCode === 72)
 	        {
@@ -144,13 +159,20 @@
 	        }
 	        else if(event.keyCode === 85)
 	        {
-		        // the 't' key handler
+		        // the 'u' key handler
 		        commandLineMode = "U";
 		        setupGenericInput("Task To Update:<br>", "");
 	        }
 	        else if(event.keyCode === 86)
 		    {
-				dumpAllTasks();
+		        // the 'v' key handler
+		        commandLineMode = "V";
+		        setupGenericInput("Project To Veil/unVeil:<br>", "");
+			}
+	        else if(event.keyCode === 87)
+		    {
+		        // the 'w' key handler
+		        showWeeklyWorkReport(currentWeek);
 			}
 	        else if(event.keyCode === 89)
 	        {
@@ -195,6 +217,21 @@
 						taskToUpdate = document.getElementById('currentlyActiveTask').innerHTML;
 						updateTaskDependency(newDependency, taskToUpdate);
 					}
+				    else if(commandLineMode === "B")
+				    {
+						batchTaskList = document.getElementById('genericInput').value;
+						twoPartCommand = true;
+				        yearString = fullYear + "-";
+				        setupGenericInput("update the tarGet date YYYY-MM-DD:", yearString);
+						commandLineMode = "BEX";
+				    }
+				    else if(commandLineMode === "BEX")
+				    {
+						newDate = document.getElementById('genericInput').value;
+						twoPartCommand = false;
+						batchTakeAction(batchTaskList, newDate);
+				    }
+
 				    else if(commandLineMode === "C")
 				    {
 						closeTaskByNumber(lastProjectSetActive);
@@ -248,15 +285,27 @@
 				    {
 						retrieveTaskForUpdate(document.getElementById('genericInput').value.trim(), null);
 					}
+				    else if (commandLineMode === "V")
+				    {
+						updateProjectHiddenBit(document.getElementById('genericInput').value.trim(), null);
+					}
 				    else if (commandLineMode === "Y")
 				    {
 						newPriority = document.getElementById('genericInput').value;
 						taskToUpdate = document.getElementById('currentlyActiveTask').innerHTML;
 						updateTaskPriority(newPriority, taskToUpdate);
 					}
-					document.getElementById('genericInput').value = '';
-				    commandLineMode = "";
-					disableGenericInput();
+					if(twoPartCommand == true)
+					{
+						// no action
+					}
+					else
+					{
+						// normal activities, no need for a two part action
+						document.getElementById('genericInput').value = '';
+					    commandLineMode = "";
+						disableGenericInput();						
+					}
 				}
 		    }
 		    else if(event.keyCode === 27)
@@ -321,6 +370,7 @@
 	    }
 
 
+
     });
 </script>
    <div class="row">
@@ -360,7 +410,7 @@ __  _  __ ____\_ |__ \_  __  \  _____
 						[<span style="color:var(--commandlist_highlight)">S</span>] <span style="color:var(--commandlist_highlight)">S</span>et active project <br>
 						[<span style="color:var(--commandlist_highlight)">L</span>] show all <span style="color:var(--commandlist_highlight)">L</span>ate tasks <br>
 						[<span style="color:var(--commandlist_highlight)">T</span>] add <span style="color:var(--commandlist_highlight)">T</span>ask (#n for priority @string for project) <br>
-						[<span style="color:var(--commandlist_highlight)">U</span>] <span style="color:var(--commandlist_highlight)">U</span>pdate task (by ID, #pri @proj)<br>
+						[<span style="color:var(--commandlist_highlight)">V</span>] <span style="color:var(--commandlist_highlight)">V</span>eil / unVeil a project (by proj)<br>
 						---[<span style="color:var(--commandlist_highlight)">Y</span>] update priorit<span style="color:var(--commandlist_highlight)">Y</span> of active task<br>
 						---[<span style="color:var(--commandlist_highlight)">G</span>] update tar<span style="color:var(--commandlist_highlight)">G</span>et date of active task<br>
 						---[<span style="color:var(--commandlist_highlight)">H</span>] update <span style="color:var(--commandlist_highlight)">H</span>eading of active task<br>
@@ -369,13 +419,13 @@ __  _  __ ____\_ |__ \_  __  \  _____
 				</div>
 			<div class="columnLeft50">
 			        <p id="section_3" class="regularText">
-						[<span style="color:var(--commandlist_highlight)">E</span>] <span style="color:var(--commandlist_highlight)">E</span>xport to weekly planner<br>
+						[<span style="color:var(--commandlist_highlight)">W</span>] show <span style="color:var(--commandlist_highlight)">W</span>eekly work report<br>
 						[<span style="color:var(--commandlist_highlight)">D</span>] <span style="color:var(--commandlist_highlight)">D</span>elete task (by ID)<br>
 						[<span style="color:var(--commandlist_highlight)">J</span>] delete pro<span style="color:var(--commandlist_highlight)">J</span>ect (by name)<br>
 						[<span style="color:var(--commandlist_highlight)">C</span>] <span style="color:var(--commandlist_highlight)">C</span>lose task (by ID)<br>
 						[<span style="color:var(--commandlist_highlight)">O</span>] set <span style="color:var(--commandlist_highlight)">O</span>ptions (showClosed)<br>
 						[<span style="color:var(--commandlist_highlight)">F</span>] <span style="color:var(--commandlist_highlight)">F</span>ind string in existing tasks<br>
-						[<span style="color:var(--commandlist_highlight)">]</span>] Set a <span style="color:var(--commandlist_highlight)">]</span>ependency<br>
+						[<span style="color:var(--commandlist_highlight)">B</span>] list tasks for a <span style="color:var(--commandlist_highlight)">B</span>atch action<br>
 						[<span style="color:var(--commandlist_highlight)">@</span>] modify project task assigned <span style="color:var(--commandlist_highlight)">@</span><br>
 						[<span style="color:var(--commandlist_highlight)">.</span>] open the project focused page <span style="color:var(--commandlist_highlight)">.</span><br>
 			        </p>
@@ -444,11 +494,16 @@ __  _  __ ____\_ |__ \_  __  \  _____
         var d = new Date();
         currentMonth = d.getMonth() + 1;
         currentYear = d.getFullYear();
-        
+                
 		new niceDatePicker({
 			dom:document.getElementById('calendar-demo-wrapper'),
 			onClickDate:function(date){
 				if(commandLineMode === "G")
+				{
+					document.getElementById('genericInput').value = date;
+					document.getElementById("genericInput").focus();
+				}
+				else if(commandLineMode === "BEX")
 				{
 					document.getElementById('genericInput').value = date;
 					document.getElementById("genericInput").focus();

@@ -22,7 +22,7 @@ function db_connect() {
     if(!isset($connection)) {
 		// Load configuration as an array. Use the actual location of your configuration file
 		// Put the configuration file outside of the document root
-		$config = parse_ini_file('../../config.ini'); 
+		$config = parse_ini_file('../../webdo_config.ini'); 
         $connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
         //debug_to_console("db_functions: establishing a static connection");
     }

@@ -1,0 +1,93 @@
+/* 
+$Rev: 633 $ 
+*/
+:root {
+    --64_black:			#000000;   
+    --64_white:			#FFFFFF;
+    --64_red:			#880000;
+    --64_cyan:			#AAFFEE;
+    --64_violet:		#CC44CC;
+    --64_green:			#00CC55;
+    --64_blue:			#0000AA;
+    --64_yellow:		#EEEE77;
+    --64_orange:		#DD8855;
+    --64_brown:			#664400;
+    --64_lightred:		#FF7777;
+    --64_darkgrey:		#333333;
+    --64_grey:			#777777;
+    --64_lightgreen:	#AAFF66;
+    --64_lightblue:		#0088FF;
+    --64_lightgrey:		#BBBBBB;
+    
+    --hr2_rv:   #8FBEC6; 
+    --ni:       #6A3A35;       
+    --ni_rv:    #95C5CA;
+    --bu1:		#313234;
+    --bu2:		#0F1c24;
+    --bu3:		#14191F;
+    --lt_gray:	#215C6C; 
+    --dk_gray:	#296371;
+
+    --main_background: var(--64_lightblue);
+    --main_text: var(--64_blue);
+   
+    --strong_text: var(--64_black);
+    --medium_text: var(--64_darkgrey);
+    --weak_text: var(--64_grey);
+        	
+	--calendar_background: var(--64_violet);
+	--calendar_header_buttons: var(--64_white);
+	--calendar_header_background: var(--64_violet);
+	--calendar_header_month_text: var(--64_white);
+	--calendar_header_text: var(--64_white);
+	--calendar_body_text: var(--64_darkgrey);
+	--calendar_not_this_month_dates_text: var(--64_grey);
+	--calendar_this_month_dates_active: var(--64_black);
+	--calendar_current_date_background: var(--64_lightblue);
+	--calendar_current_date_text: var(--64_blue);
+	--calendar_hover_date_background: var(--64_white);
+	--calendar_hover_date_text: var(--64_violet);
+
+	--time_clock_text: var(--64_blue);
+	--time_date_text: var(--64_blue);
+    
+    --button_dashes: var(--64_black);
+    --button_color:  var(--64_blue);
+	--button_text: var(--64_white); 
+	--button_hover_background: var(--64_white);
+	--button_hover_text: var(--64_black);
+	
+	--commandlist_highlight: var(--64_orange);
+
+	--input_focus_border: var(--64_yellow);
+	--input_focus_background: var(--64_brown);
+	--input_focus_text: var(--64_orange);
+	--input_border: var(--64_lightgreen);
+	--input_background: var(--dk_gray);
+	--input_text: var(--64_red);
+    
+	--tasklist_header_background: var(--64_black);
+	--tasklist_header_text: var(--64_orange);
+	--tasklist_hover_background: var(--64_black);
+	--tasklist_hover_text: var(--64_orange);
+	--tasklist_row_1_bg: var(--64_lightgrey);
+	--tasklist_row_2_bg: var(--64_darkgrey);
+	--tasklist_due_today: var(--64_lightgreen);
+	--tasklist_late_task: var(--64_red);
+	--tasklist_priority_0: var(--64_green);
+	--tasklist_priority_1: var(--64_lightred);
+	--tasklist_priority_2: var(--64_cyan);
+	--tasklist_priority_3: var(--64_yellow);
+	--tasklist_priority_4: var(--64_orange);
+	--tasklist_priority_5: var(--64_lightblue);
+		
+    --taskpanel_header_background: var(--64_lightgreen);
+    --taskpanel_header_text: var(--64_black);
+    --taskpanel_background: var(--64_green);
+    --taskpanel_text: var(--64_white);
+    
+    --taskpanel_notes_background: var(--64_lightgrey);
+    --taskpanel_notes_text: var(--64_orange);
+    --taskpanel_notes_background_focus: var(--dk_gray);
+    --taskpanel_notes_text_focus: var(--64_white);
+}

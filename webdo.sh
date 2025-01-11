@@ -13,39 +13,59 @@ cols=`tput cols`
 
 if [ "$1" == "--task" ] || [ "$1" == "-t" ]
 then
-    echo "Adding Task: ${RED}" "$2 ${NC}"
-	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://182studios.com/webdo/webdo_interface.php | w3m -dump -T text/html
-    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://182studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "Adding Task: ${NC}" 
+    echo $2
+	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -T text/html
+    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 
 fi
 
 if [ "$1" == "--late" ] || [ "$1" == "-l" ] || [ "$1" == "late" ]
 then
-    echo "showing ${RED}Late${NC} tasks: "
-    curl -s --data "action=retrieveLateTasks" https://182studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "showing ${RED}Late${NC} tasks: "
+    curl -s --data "action=retrieveLateTasks" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
 if [ "$1" == "--setProject" ] || [ "$1" == "-s" ]
 then
-    echo "showing tasks from : ${RED}" "$2 ${NC}"
-    curl -s --data "action=retrieveTaskListForProject&project=$2&previousProject=default" https://182studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "showing tasks from : ${RED} %s ${NC}"  $2
+    curl -s --data "action=retrieveTaskListForProject&project=$2&previousProject=default" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
 if [ "$1" == "--Close" ] || [ "$1" == "-c" ] || [ "$1" == "close" ]
 then
-	echo "Closing task ${GREEN}" "$2 ${NC}"
-    curl -s --data "action=closeTaskByNumber&taskID=$2" https://182studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
+	printf "Closing task ${GREEN} %s ${NC}" $2
+    curl -s --data "action=closeTaskByNumber&taskID=$2" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
 if [ "$1" == "--TEST" ] || [ "$1" == "-99" ]
 then
-    curl -s --data "action=outputTest" https://182studios.com/webdo/webdo_interface.php | open -dump -cols "$cols" -T text/html
+    curl -s --data "action=outputTest" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
-
-if [ "$1" == "--help" ] || [ "$1" == "-h" ]
+if [ "$1" == "--notes" ] || [ "$1" == "-n" ] || [ "$1" == "-N" ]
 then
-	echo "-t --task : \"task header\" project priority"
+	printf "dumping task information ${GREEN} %s ${NC}\n" $2
+    
+	returnString=`curl -s --data "action=outputNotes&task=$2" https://northridge-studios.com/webdo/webdo_interface.php `
+    echo -ne $returnString
+    #printf "%b" $returnString
+fi
+
+if [ "$1" == "--find" ] || [ "$1" == "-f" ] || [ "$1" == "-F" ]
+then
+	printf "searching for string ${GREEN} %s ${NC}\n" $2
+    
+	returnString=`curl -s --data "action=findTasksByString&searchString=$2" https://northridge-studios.com/webdo/webdo_interface.php `
+    echo -ne $returnString
+    #printf "%b" $returnString
+fi
+
+if [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "-H" ]
+then
+	echo "-t --task : \"task header\" project priority : will add a task in the project specified"
+	echo "-n --notes : \"weekly header\" : will output the notes of the specified task"
+	echo "-f --find : search for string \"searchString\""
 	echo "-l --late : show late tasks"
 	echo "-s --setProject : project"
 	echo "-c --Close : taskID to close"

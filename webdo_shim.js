@@ -2,7 +2,7 @@
 
 var lastAcceptedTheme = 0;
 var currentShownTheme = 0;
-var themes = ["b_orig_th.css", "gb_th.css", "76_th.css", "newspaper_th.css", "limitedclrs_th.css"];
+var themes = ["b_orig_th.css", "gb_th.css", "76_th.css", "newspaper_th.css", "limitedclrs_th.css", "c64_th.css", "sublime.css"];
 
 function setupGenericInput(displayString, inputFieldString) {
 	$('#section_2').html("<p>" + displayString + "<input style=\"width: 320px;\" name=\"task\" id=\"genericInput\" type=\"text\" value=\"" + inputFieldString + "\"/> </p>");
@@ -40,6 +40,15 @@ function retrieveTaskForUpdate(taskID, activeProject) {
         function(data) {
          	$('#task_update_area').html(data);
         });
+}
+
+function updateProjectHiddenBit(projectName) {
+    $.post("webdo_interface.php", { action: "toggleProjectHiddenBit", project:  projectName },
+        function(data) {
+         	$('#task_update_area').html(data);
+           	handleProjectSelection("AllTasks");
+			retrieveProjectList();
+		});
 }
 
 function exportTasksByWeekNumber(weekNumber) {
@@ -130,6 +139,16 @@ function updateTaskTargetDate(targetDate, taskID) {
         });
 }
 
+function batchTakeAction(taskIDList, targetDate) {
+    $.post("webdo_interface.php", { action: "batchUpdateTaskTargetDate", date: targetDate, taskIDList: taskIDList },
+        function(data) {
+    	 $('#task_update_area').html(data);
+         disableGenericInput();
+         handleProjectSelection(lastProjectSetActive);
+		 retrieveTaskForUpdate(null, lastProjectSetActive);
+        });
+}
+
 function updateTaskHeader(header, taskID) {
     $.post("webdo_interface.php", { action: "updateTaskHeader", header: header, taskID: taskID },
         function(data) {
@@ -215,6 +234,25 @@ function findTasksByString(searchString) {
          	// handleProjectSelection(lastProjectSetActive);
 			retrieveTaskForUpdate(getTaskIDForFirstTaskDisplayedInTable(), null);
         });
+}
+
+function showWeeklyWorkReport(currentWeek) {
+	var weekString = "WK_" + currentWeek;
+    $.post("webdo_interface.php", { action: "findTasksByString", searchString: weekString },
+        function(data) {
+         	$('#task_list_display_area').html(data);
+         	disableGenericInput();
+         	// handleProjectSelection(lastProjectSetActive);
+			retrieveTaskForUpdate(getTaskIDForFirstTaskDisplayedInTable(), null);
+        });
+    $.post("webdo_interface.php", { action: "generateWeeklyWorkReport", searchString: weekString },
+        function(data) {
+         	$('#task_list_display_area').html(data);
+         	disableGenericInput();
+         	//handleProjectSelection("work");
+		    //retrieveTaskForUpdate(findTasksByStringNoTaskListUpdate(weekString), null);
+        });
+ 	lastProjectSetActive = "work";
 }
 
 function getTaskIDForFirstTaskDisplayedInTable() {

@@ -91,6 +91,7 @@ input[type=text] {
   color: var(--input_text);
 }
 
+
 .full-height {
   height: 100%;
   background: var(--tasklist_row_1_bg);
@@ -199,7 +200,7 @@ input[type=text] {
 }
 
 .update_area {
-	height: 420px;
+	height: 600px;
 	background-color: var(--taskpanel_background);
 	color: var(--taskpanel_text);
 }
@@ -228,6 +229,14 @@ table {
 
 td { 
 	position: relative; 
+}
+
+td.taskListDueToday { 
+	color: var(--tasklist_due_today);
+}
+
+td.taskListLateTask { 
+	color: var(--tasklist_late_task);
 }
 
 tr.strikethrough td:before {
