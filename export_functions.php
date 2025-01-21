@@ -455,8 +455,11 @@ $dataToReplace = "
 
 $closingText = "</body> </html>";
 
+	$inputfile = fopen("template.html", "w") or die("Unable to open file!");
+	$inputContents = file_get_contents($inputfile);
+
 	$myfile = fopen("export.html", "w") or die("Unable to open file!");
-	fwrite($myfile, $mainBody);
+	file_put_contents($myfile, $inputContents);
 
 	if($weekValue == "0" || $weekValue == "1" || $weekValue == "t" || $weekValue == "T")
 	{
@@ -506,6 +509,22 @@ $closingText = "</body> </html>";
 		{
 			fwrite($myfile, "document.getElementById('mondayLineTwo').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
 		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('mondayLineThree').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('mondayLineFour').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('mondayLineFive').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('mondayLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
 			
 	    // TUESDAY
 	    $nextDay = date("Y-m-d", strtotime($nextDay . "+ 1 days"));
@@ -521,7 +540,22 @@ $closingText = "</body> </html>";
 		{
 			fwrite($myfile, "document.getElementById('tuesdayLineTwo').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
 		} 
-	
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('tuesdayLineThree').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('tuesdayLineFour').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 		
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('tuesdayLineFive').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 		
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('tuesdayLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
+		} 
 	    // WEDNESDAY
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
