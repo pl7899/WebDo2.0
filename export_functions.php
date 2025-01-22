@@ -456,7 +456,8 @@ $dataToReplace = "
 $closingText = "</body> </html>";
 
 	$inputfile = fopen("template.html", "w") or die("Unable to open file!");
-	$inputContents = file_get_contents($inputfile);
+	$inputContents = fread($inputfile, filesize("template.html"));
+
 	echo "using the new template file <br>";
 
 	$myfile = fopen("export.html", "w") or die("Unable to open file!");
