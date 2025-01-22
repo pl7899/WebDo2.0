@@ -458,12 +458,12 @@ $closingText = "</body> </html>";
 	echo "line 457 </br>";
 	$inputContents = file_get_contents("template.html");
 	echo "line 460 </br>";
-
-
 	echo "using the new template file <br>";
+	file_put_contents("export.html", $inputContents);
+	echo "line 463 </br>";
 
 	$myfile = fopen("export.html", "w") or die("Unable to open file!");
-	file_put_contents($myfile, $inputContents);
+	echo "line 466 </br>";
 
 	if($weekValue == "0" || $weekValue == "1" || $weekValue == "t" || $weekValue == "T")
 	{
