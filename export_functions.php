@@ -627,7 +627,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('saturdayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
