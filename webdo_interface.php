@@ -35,7 +35,7 @@ elseif ($_POST['action'] == "exportTasksByWeekNumber")
 
 	exportFreshPlanner($weekValue);
 
-	echo "exportTasksByWeekNumber(" . $weekValue . " " . $nextMonday . ")";	
+	echo "exportTasksByWeekNumber( " . $weekValue . " )";	
 }
 elseif ($_POST['action'] == "retrieveTaskListForProject")
 {
