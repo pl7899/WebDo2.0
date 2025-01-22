@@ -501,10 +501,13 @@ $closingText = "</body> </html>";
 		echo "weekValue : " . $weekValue . ", nextDay : " . $nextDay . "<br>";
 
 	    // MONDAY
+		echo "line 504 </br>";
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
+		echo "line 507</br>";
 		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
-				
+		echo "line 509 </br>";
+			
 		if($row = mysqli_fetch_array($rows)) 
 		{
 			fwrite($myfile, "document.getElementById('mondayLineOne').innerHTML = \" " . substr($row['taskDescription'], 0, $weekdayCharacters) . " \" \n");
