@@ -455,8 +455,10 @@ $dataToReplace = "
 
 $closingText = "</body> </html>";
 
-	$inputfile = fopen("template.html", "w") or die("Unable to open file!");
-	$inputContents = fread($inputfile, filesize("template.html"));
+	echo "line 457 </br>";
+	$inputContents = file_get_contents("template.html");
+	echo "line 460 </br>";
+
 
 	echo "using the new template file <br>";
 
