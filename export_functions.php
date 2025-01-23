@@ -68,7 +68,8 @@ $closingText = "</body> </html>";
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
 		echo "line 507</br>";
-		fwrite($myfile, "document.getElementById('monthYearDisplay').innerHTML = \" " . date("M Y", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('monthYearDisplay').innerHTML = \" " . date("F Y", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \"week " . $weekValue .  " : " . date("M dS", strtotime($nextDay)) . " \" \n");
 		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
 		echo "line 509 </br>";
 			
