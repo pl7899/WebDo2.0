@@ -69,8 +69,8 @@ $closingText = "</body> </html>";
 		$rows = mysqli_query($db, $findWeeksTasks);
 		echo "line 507</br>";
 		fwrite($myfile, "document.getElementById('monthYearDisplay').innerHTML = \" " . date("F Y", strtotime($nextDay)) . " \" \n");
-		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \"week " . $weekValue .  " : " . date("M dS", strtotime($nextDay)) . " \" \n");
-		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " - " . date("dS", strtotime($nextDay + 7)) . " \" \n");
+		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " - " . date("dS", strtotime($nextDay + 7)) . " \" \n");
+		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 		echo "line 509 </br>";
 			
 		if($row = mysqli_fetch_array($rows)) 
@@ -98,7 +98,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay . "+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('tuesdayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('tuesdayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
@@ -125,7 +125,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('wednesdayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('wednesdayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
@@ -152,7 +152,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('thursdayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('thursdayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
@@ -179,7 +179,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('fridayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('fridayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
@@ -206,7 +206,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('saturdayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('saturdayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
@@ -233,7 +233,7 @@ $closingText = "</body> </html>";
 	    $nextDay = date("Y-m-d", strtotime($nextDay."+ 1 days"));
 		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"" . $nextDay . "\" ORDER BY `priority` DESC";
 		$rows = mysqli_query($db, $findWeeksTasks);
-		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("dS", strtotime($nextDay)) . " \" \n");
 				
 		if($row = mysqli_fetch_array($rows)) 
 		{
