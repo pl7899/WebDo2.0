@@ -70,7 +70,7 @@ $closingText = "</body> </html>";
 		echo "line 507</br>";
 		fwrite($myfile, "document.getElementById('monthYearDisplay').innerHTML = \" " . date("F Y", strtotime($nextDay)) . " \" \n");
 		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \"week " . $weekValue .  " : " . date("M dS", strtotime($nextDay)) . " \" \n");
-		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " - " . date("dS", strtotime($nextDay + 7)) . " \" \n");
 		echo "line 509 </br>";
 			
 		if($row = mysqli_fetch_array($rows)) 
