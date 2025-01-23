@@ -69,7 +69,7 @@ $closingText = "</body> </html>";
 		$rows = mysqli_query($db, $findWeeksTasks);
 		echo "line 507</br>";
 		fwrite($myfile, "document.getElementById('monthYearDisplay').innerHTML = \" " . date("F Y", strtotime($nextDay)) . " \" \n");
-		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \" " . "week : " . date("o", strtotime($nextDay)) . " , " . date("M dS", strtotime($nextDay)) . " - " . date("dS", strtotime($nextDay + 7)) . " \" \n");
+		fwrite($myfile, "document.getElementById('weekInformation').innerHTML = \" " . "week : " . date("W", strtotime($nextDay)) . " , " . date("M dS", strtotime($nextDay)) . " - " . date("dS", strtotime($nextDay + 7)) . " \" \n");
 		fwrite($myfile, "document.getElementById('mondayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
 		echo "line 509 </br>";
 			
