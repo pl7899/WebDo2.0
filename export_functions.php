@@ -32,7 +32,7 @@ $closingText = "</body> </html>";
 	{
 		fwrite($myfile, "<script>");
 		$weekdayCharacters = 34;
-		$weekendCharacters = 34;
+		$weekendCharacters = 38;
 		// if we didn't ask for the current or the next week assume that we want an empty planner, we start with Monday
 		if($weekValue == "0")
 		{
