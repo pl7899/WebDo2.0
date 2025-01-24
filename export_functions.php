@@ -41,7 +41,7 @@ $closingText = "</body> </html>";
 		}
 		else if($weekValue == "1")
 		{
-			$nextDay = date("Y-m-d", strtotime("last monday"));  // didn't work
+			$nextDay = date("Y-m-d", strtotime("last monday + 7 days"));  // didn't work
 			echo "setting nextDay in the ELSE IF clause: " . $nextDay . "<br>";
 		}
 		else if($weekValue == "t" || $weekValue == "T")
