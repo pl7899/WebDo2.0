@@ -34,6 +34,7 @@ $closingText = "</body> </html>";
 		$weekdayCharacters = 34;
 		$weekendCharacters = 38;
 		// if we didn't ask for the current or the next week assume that we want an empty planner, we start with Monday
+		// TODO : use the week requested * 7 for the number of days, should be a single query regardless of the week number
 		if($weekValue == "0")
 		{
 			$nextDay = date("Y-m-d", strtotime("last monday"));  // didn't work
@@ -51,12 +52,12 @@ $closingText = "</body> </html>";
 		    if(substr($startDateModifier, 0, 1) == "-")
 		    {
 				$mondayDate = date('M-j', strtotime(' - ' . substr($startDateModifier, 1, 1) . ' days'));
-				$nextDay = date('Y/m/d', strtotime(' - ' . substr($startDateModifier, 1, 1) . ' days'));
+				$nextDay = date('Y-m-d', strtotime(' - ' . substr($startDateModifier, 1, 1) . ' days'));
 		    }
 		    else
 		    {
 				$mondayDate = date('M-j', strtotime(' + ' . $startDateModifier . ' days'));
-				$nextDay = date('Y/m/d', strtotime(' + ' . $startDateModifier . ' days'));
+				$nextDay = date('Y-m-d', strtotime(' + ' . $startDateModifier . ' days'));
 			}
 
 			echo "setting nextDay in the ELSE IF clause: " . $nextDay . "<br>";
