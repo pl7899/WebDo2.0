@@ -265,7 +265,7 @@ $closingText = "</body> </html>";
 			fwrite($myfile, "document.getElementById('sundayLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $weekendCharacters) . " \" \n");
 		} 
 		//JJ Task LList
-		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `project`=\"jennyStuff\"  AND NOT `project`=\"work\" ORDER BY `priority` ASC";
+		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `project`=\"jenny Stuff\"  AND NOT `project`=\"work\" ORDER BY `priority` ASC";
 		$rows = mysqli_query($db, $findWeeksTasks);
 		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
 				
