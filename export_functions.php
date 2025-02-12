@@ -33,7 +33,7 @@ $closingText = "</body> </html>";
 		fwrite($myfile, "<script>");
 		$weekdayCharacters = 34;
 		$weekendCharacters = 38;
-		$jjCharacters = 22;
+		$jjCharacters = 20;
 		// if we didn't ask for the current or the next week assume that we want an empty planner, we start with Monday
 		// TODO : use the week requested * 7 for the number of days, should be a single query regardless of the week number
 		if($weekValue == "0")
