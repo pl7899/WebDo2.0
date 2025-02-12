@@ -33,6 +33,7 @@ $closingText = "</body> </html>";
 		fwrite($myfile, "<script>");
 		$weekdayCharacters = 34;
 		$weekendCharacters = 38;
+		$jjCharacters = 25;
 		// if we didn't ask for the current or the next week assume that we want an empty planner, we start with Monday
 		// TODO : use the week requested * 7 for the number of days, should be a single query regardless of the week number
 		if($weekValue == "0")
@@ -263,6 +264,40 @@ $closingText = "</body> </html>";
 		{
 			fwrite($myfile, "document.getElementById('sundayLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $weekendCharacters) . " \" \n");
 		} 
+		//JJ Task LList
+		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"0000-00-00\"  AND NOT `project`=\"work\" ORDER BY `priority` ASC";
+		$rows = mysqli_query($db, $findWeeksTasks);
+		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
+				
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineOne').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineTwo').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineThree').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineFour').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineFive').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+		if($row = mysqli_fetch_array($rows)) 
+		{
+			fwrite($myfile, "document.getElementById('jjLineSeven').innerHTML = \" " . substr($row['taskDescription'], 0, $jjCharacters) . " \" \n");
+		} 
+
 		else
 		{
 			

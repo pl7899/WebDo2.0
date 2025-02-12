@@ -1,0 +1,227 @@
+.page {
+	height: 1025px;
+	width: 795px;
+	margin-left: 15px;
+}
+
+.page2 {
+	transform: rotate(180deg);
+}
+
+.rowHeader {
+	display: flex;
+	flex-wrap: wrap;
+	height: 5%;
+	align-items: center;
+}
+
+.rowCalendars {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
+	height: 86%;
+	margin: 1%;
+}
+
+.rowWeek {
+	height: 70%;
+	display: flex;
+}
+
+.rowFoodSuggestions {
+	height: 26%;
+	display: flex;
+}
+
+.columnFood {
+	width: 33%;
+	display: flex;
+	margin: .75%;
+	font-size: 24px;
+}
+
+.rowPhoneNumbers {
+	height: 40%;
+	display: flex;
+}
+
+.rowSecrets {
+	height: 25%;
+	display: flex;
+}
+
+.columnSecrets {
+	width:32%;
+	display: flex;
+	margin: .75%;
+	font-size: 22px;
+}
+
+.columnPhoneNumbers {
+	width:50%;
+	display: flex;
+	margin: .75%;
+}
+
+.ColumnWeek {
+	width: 49%;
+	display: flex;
+    flex-direction: column;
+	margin: .75%;
+}
+
+.rowFooter {
+	height: 24%;
+	display: flex;
+    flex-direction: column;
+	margin-top: 30px;
+}
+
+.itemDateDisplay {
+	width: 100%;
+	height: 80%;
+	margin-top: 10%;
+}
+
+.itemDateHolder {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+
+}
+
+.itemDayDateInfo {
+	align-self: flex-end;
+}
+
+.itemCalendar {
+	width: 66%;
+	height: 90%;
+	margin: 1%;
+}
+
+.itemDayOfWeek {
+	width: 100%;
+	height: 25%;
+	background-color: white;
+}
+
+.itemDayOfWeekHeader {
+	height: 10%;
+	font-size: 28px;
+}
+
+.itemDayOfWeekBody {
+	height: 81%;
+	font-size: 24px;
+}
+
+.calendarMonth {
+	font-size: 32px;
+	color: black;
+	text-align: center;
+	margin-top: 1%;
+    text-decoration: underline;
+}
+
+.weekInformation{
+	font-size: 22px;
+	color: black;
+	text-align: center;
+}
+
+.linedPaper {
+	background-image:
+	linear-gradient(90deg, transparent 17px, #000000 17px, #ffffff 19px, transparent 20px),
+	linear-gradient(#000000 1px, transparent 1px);
+	background-size: 100% 1.075em;
+}
+
+.linedPaperDoubles {
+	background-image:
+	linear-gradient(90deg, transparent 17px, #000000 17px, #ffffff 19px, transparent 20px),
+	linear-gradient(#000000 1px, transparent 1px);
+	background-size: 33% 1.8em;
+}
+
+.linedPaperSixLines {
+	background-image:
+	linear-gradient(90deg, transparent 17px, #000000 17px, #ffffff 19px, transparent 20px),
+	linear-gradient(#000000 1px, transparent 1px);
+	background-size: 100% 0.98em;
+}
+
+.itemSuppliesHeader {
+	height: 10%;
+	font-size: 28px;
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+.itemSuppliesSplit {
+	width: 100%;
+	height: 83%;
+}
+
+.itemChores {
+	width: 45%;
+	margin: 1%;
+} 
+
+.itemTaskList {
+	color: blue;
+	font-size: 24px;
+	text-align: left;
+	margin-left: 28px;
+	margin-top: 0px;
+	margin-bottom: -1.5px;
+} 
+
+.itemWeekendTaskList {
+	color: blue;
+	font-size: 22px;
+	text-align: left;
+	margin-left: 28px;
+	margin-top: 0px;
+	margin-bottom: -1.5px;
+} 
+
+.jjTaskList {
+	color: red;
+	font-size: 26px;
+	text-align: left;
+	margin-left: 28px;
+	margin-top: 0px;
+	margin-bottom: -1.5px;
+} 
+hr {
+	margin-bottom: 0;
+}
+
+.itemPhoneNumberName {
+	width: 50%;
+	color: blue;
+	font-size: 26px;
+	text-align: center;
+} 
+
+.itemPhoneNumberNumber {
+	width: 50%;
+	font-size: 26px;
+	margin-left: auto;
+} 
+
+table {
+	border: 1px solid;
+  	width: 95%;
+	border-collapse: collapse;
+}
+
+tr {
+	width: 100%;
+}
+
+td {
+	border: 1px solid;
+	text-align: center;
+}

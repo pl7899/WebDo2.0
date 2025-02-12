@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="template.css">
+</head>
+<body>
+	<div class="page">
+	<div class="rowHeader">
+		<div class="rowCalendars"> 
+			<div class="itemCalendar"></div>
+			<div class="itemCalendar"></div>
+			<div class="itemCalendar"></div>
+		</div>
+	</div>
+	<div class="rowWeek">
+		<div class="ColumnWeek">
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader"></div>
+				</div>
+				<div class="itemDayOfWeekBody ">
+					<div class="itemDateDisplay">
+						<div class="calendarMonth" id="monthYearDisplay"></div>
+						<div class="weekInformation" id="weekInformation"></div>
+					</div>
+				</div>
+			</div>
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Tuesday</div>
+					<div class="itemDayDateInfo" id="tuesdayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaper">
+					<hr>
+					<p class="itemTaskList" id="tuesdayLineOne"></p>
+					<p class="itemTaskList" id="tuesdayLineTwo"></p>
+					<p class="itemTaskList" id="tuesdayLineThree"></p>
+					<p class="itemTaskList" id="tuesdayLineFour"></p>
+					<p class="itemTaskList" id="tuesdayLineFive"></p>
+				</div>
+			</div>
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Thursday</div>
+					<div class="itemDayDateInfo" id="thursdayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaper">
+					<hr>
+					<p class="itemTaskList" id="thursdayLineOne"></p>
+					<p class="itemTaskList" id="thursdayLineTwo"></p>
+					<p class="itemTaskList" id="thursdayLineThree"></p>
+					<p class="itemTaskList" id="thursdayLineFour"></p>
+					<p class="itemTaskList" id="thursdayLineFive"></p>
+				</div>
+			</div>
+
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Saturday</div>
+					<div class="itemDayDateInfo" id="saturdayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaperSixLines">
+					<hr>
+					<p class="itemWeekendTaskList" id="saturdayLineOne"></p>
+					<p class="itemWeekendTaskList" id="saturdayLineTwo"></p>
+					<p class="itemWeekendTaskList" id="saturdayLineThree"></p>
+					<p class="itemWeekendTaskList" id="saturdayLineFour"></p>
+					<p class="itemWeekendTaskList" id="saturdayLineFive"></p>
+					<p class="itemWeekendTaskList" id="saturdayLineSix"></p>
+				</div>
+			</div>
+		</div>
+		<div class="ColumnWeek">
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Monday</div>
+					<div class="itemDayDateInfo" id="mondayDate">20th</div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaper">
+					<hr>
+					<p class="itemTaskList" id="mondayLineOne"></p>
+					<p class="itemTaskList" id="mondayLineTwo"></p>
+					<p class="itemTaskList" id="mondayLineThree"></p>
+					<p class="itemTaskList" id="mondayLineFour"></p>
+					<p class="itemTaskList" id="mondayLineFive"></p>
+				</div>
+			</div>
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Wednesday</div>
+					<div class="itemDayDateInfo" id="wednesdayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaper">
+					<hr>
+					<p class="itemTaskList" id="wednesdayLineOne"></p>
+					<p class="itemTaskList" id="wednesdayLineTwo"></p>
+					<p class="itemTaskList" id="wednesdayLineThree"></p>
+					<p class="itemTaskList" id="wednesdayLineFour"></p>
+					<p class="itemTaskList" id="wednesdayLineFive"></p>
+				</div>
+			</div>
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Friday</div>
+					<div class="itemDayDateInfo" id="fridayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaper">
+					<hr>
+					<p class="itemTaskList" id="fridayLineOne"></p>
+					<p class="itemTaskList" id="fridayLineTwo"></p>
+					<p class="itemTaskList" id="fridayLineThree"></p>
+					<p class="itemTaskList" id="fridayLineFour"></p>
+					<p class="itemTaskList" id="fridayLineFive"></p>
+				</div>
+			</div>
+			<div class="itemDayOfWeek">
+				<div class="itemDateHolder"> 
+					<div class="itemDayOfWeekHeader">Sunday</div>
+					<div class="itemDayDateInfo" id="sundayDate"></div>
+				</div>
+				<div class="itemDayOfWeekBody linedPaperSixLines">
+					<hr>
+					<p class="itemWeekendTaskList" id="sundayLineOne"></p>
+					<p class="itemWeekendTaskList" id="sundayLineTwo"></p>
+					<p class="itemWeekendTaskList" id="sundayLineThree"></p>
+					<p class="itemWeekendTaskList" id="sundayLineFour"></p>
+					<p class="itemWeekendTaskList" id="sundayLineFive"></p>
+					<p class="itemWeekendTaskList" id="sundayLineSix"></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="rowFooter">
+		<div class="itemSuppliesHeader"> Notes:</div>
+		<div class="itemSuppliesSplit linedPaperDoubles"> 
+			<p class="jjTaskList" id="jjLineOne">line1</p>
+			<p class="jjTaskList" id="jjLinetwo">line2</p>
+			<p class="jjTaskList" id="jjLineThree">line3</p>
+			<p class="jjTaskList" id="jjLineFour">line4</p>
+			<p class="jjTaskList" id="jjLineFive">line5</p>
+			<p class="jjTaskList" id="jjLineSix">line6</p>
+			<p class="jjTaskList" id="jjLineSeven">line7</p>
+
+		</div>
+	</div>
+	</div>
+
+	<div class="page page2">
+		<div class="rowFoodSuggestions">
+			<div class="columnFood">
+				Pork Chop </br>
+				Indian </br>
+				Meatball subs</br>
+				Chili</br>
+				Ommletes</br>
+				Ribs</br>
+				Tacos</br>
+				Ham & Mac</br>
+				Quiche</br>
+			</div>
+			<div class="columnFood">
+				Burgers & Dogs</br>
+				Pizzas</br>
+				Salmon</br>
+				Tuna</br>
+				Boli</br>
+				Grilled Cheese</br>
+				BLTs</br>
+				Enchiladas</br>
+			</div>
+			<div class="columnFood">
+				Salad</br>
+				Mashed Potatoes</br>
+				Mac & Cheese</br>
+				Roasted Red Potatoes</br>
+				Rice</br>
+				Applesauce</br>
+				Asparagus</br>
+			</div>
+		</div>
+		<div class="rowPhoneNumbers">
+			<div class="columnPhoneNumbers">
+				<table>
+				<tr>
+				  <td>Pete</td>
+				  <td>(717) 669-6436</td>
+				</tr>
+				<tr>
+				  <td>JJ</td>
+				  <td>(403) 909-6464</td>
+				</tr>
+				<tr>
+					<td>Penny</td>
+					<td>(717 669-6436)</td>
+				  </tr>
+				  <tr>
+					<td>Sandy & Lee</td>
+					<td>(403) 909-6464</td>
+				  </tr>
+				  <tr>
+					<td>Maddy</td>
+					<td>(717 669-6436)</td>
+				  </tr>
+				  <tr>
+					<td>Syd</td>
+					<td>(403) 909-6464</td>
+				  </tr>
+				  <tr>
+					<td>Avery</td>
+					<td>(717 669-6436)</td>
+				  </tr>
+				  <tr>
+					<td>Ward</td>
+					<td>(403) 909-6464</td>
+				  </tr>
+				  <tr>
+					<td>Jack</td>
+					<td>(717 669-6436)</td>
+				  </tr>			  				  
+				  <tr>
+					<td>Garry</td>
+					<td>(403) 909-6464</td>
+				  </tr>
+				  <tr>
+					<td>Greg</td>
+					<td>(717 669-6436)</td>
+				  </tr>		
+				</table>
+			</div>
+			<div class="columnPhoneNumbers">
+				<table>
+					<tr>
+					  <td>Hannold's</td>
+					  <td>(717 669-6436)</td>
+					</tr>
+					<tr>
+					  <td>Zimmerman's</td>
+					  <td>(403) 909-6464</td>
+					</tr>
+					<tr>
+						<td>Brubaker</td>
+						<td>(717 669-6436)</td>
+					  </tr>
+					  <tr>
+						<td>Pete Dr</td>
+						<td>(403) 909-6464</td>
+					  </tr>
+					  <tr>
+						<td>JJ Drr</td>
+						<td>(717 669-6436)</td>
+					  </tr>
+					  <tr>
+						<td>Susquehanna Dental</td>
+						<td>(403) 909-6464</td>
+					  </tr>
+					  <tr>
+						<td>Ken & Cathy</td>
+						<td>(717 669-6436)</td>
+					  </tr>
+					  <tr>
+						<td>Michael & Betty</td>
+						<td>(403) 909-6464</td>
+					  </tr>
+					  <tr>
+						<td>Pearl Visio</td>
+						<td>(717 669-6436)</td>
+					  </tr>			  				  
+					  <tr>
+						<td>Audi Dealer</td>
+						<td>(403) 909-6464</td>
+					  </tr>
+					  <tr>
+						<td>????</td>
+						<td>(717 669-6436)</td>
+					  </tr>		
+					</table>
+			</div>
+		</div>
+		</br>
+		<div class="rowSecrets">
+			<div class="columnSecrets">
+				Vacccume Bedrooms</br>
+				Vacccume Living Space</br>
+				Gather Trash</br>
+				Dust</br>
+				Mow Grass</br>
+				Clean Half Bath</br>
+				Clean Master Bath</br>
+				Clean Second Bath</br>
+			</div>
+			<div class="columnSecrets">
+				Clean Washing Machine</br>
+				Empty Fridge</br>
+				Clean Tile Floors</br>
+				clean Oven & Cooktop</br>
+				Weed eater / edger</br>				
+				Kitchen Sink</br>				
+				Vacccume Basement</br>
+				Kitchen Countertops</br>				
+			</div>
+			<div class="columnSecrets">
+				water birds</br>
+				Laundry</br>
+				Grocery</br>
+				clean hardwood floor</br>
+				Clean Windows</br>				
+				spray weeds</br>				
+				water plants</br>				
+				shutter maintenance</br>				
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
