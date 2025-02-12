@@ -188,11 +188,11 @@
 
 .jjTaskList {
 	color: black;
-	font-size: 26px;
+	font-size: 25px;
 	text-align: left;
 	margin-left: 550px;
 	margin-top: 0.8px;
-	margin-bottom: -1.5px;
+	margin-bottom: -0.5px;
 } 
 hr {
 	margin-bottom: 0;
