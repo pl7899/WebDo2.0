@@ -33,7 +33,7 @@ $closingText = "</body> </html>";
 		fwrite($myfile, "<script>");
 		$weekdayCharacters = 34;
 		$weekendCharacters = 38;
-		$jjCharacters = 25;
+		$jjCharacters = 22;
 		// if we didn't ask for the current or the next week assume that we want an empty planner, we start with Monday
 		// TODO : use the week requested * 7 for the number of days, should be a single query regardless of the week number
 		if($weekValue == "0")
@@ -265,7 +265,7 @@ $closingText = "</body> </html>";
 			fwrite($myfile, "document.getElementById('sundayLineSix').innerHTML = \" " . substr($row['taskDescription'], 0, $weekendCharacters) . " \" \n");
 		} 
 		//JJ Task LList
-		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `targetDate`=\"0000-00-00\"  AND NOT `project`=\"work\" ORDER BY `priority` ASC";
+		$findWeeksTasks = "SELECT *  FROM `todoActions` WHERE `isOpen`=\"1\" AND `project`=\"jennyStuff\"  AND NOT `project`=\"work\" ORDER BY `priority` ASC";
 		$rows = mysqli_query($db, $findWeeksTasks);
 		fwrite($myfile, "document.getElementById('sundayDate').innerHTML = \" " . date("M dS", strtotime($nextDay)) . " \" \n");
 				
