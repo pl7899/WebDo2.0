@@ -263,6 +263,39 @@ elseif ($_POST['action'] == "generateWeeklyWorkReport")
 	echo "<p><span style=\"color:var(--strong_text);\">// ----- All WORK Tasks that fall between " . $mondayDateFullString . " and " . $fridayDateFullString . " (" . mysqli_num_rows($rows) . ") </span></p>";
 	printWeeklyReportTaskTable($rows, $db);
 }
+elseif ($_POST['action'] == "outputWeeklyReport")
+{
+	$optionsRead = mysqli_query($db, "SELECT * FROM `todoOptions` WHERE `id`=1");
+	$options = mysqli_fetch_array($optionsRead);
+	
+	$projectToRequest = "thisweek";
+    // get number of days until monday, or if it is past go back to monday, then query for the tasks with those five days for the target
+    //get todays numerical value
+    
+    $today=date("N"); // N = 1(mon) .. 7(sun)
+    $startDateModifier = 1 - $today; // number of days to add to today to get to Monday
+    if(substr($startDateModifier, 0, 1) == "-")
+    {
+		$mondayDate = date('M-j', strtotime(' - ' . substr($startDateModifier, 1, 1) . ' days'));
+		$mondayDateFullString = date('Y/m/d', strtotime(' - ' . substr($startDateModifier, 1, 1) . ' days'));
+    }
+    else
+    {
+		$mondayDate = date('M-j', strtotime(' + ' . $startDateModifier . ' days'));
+		$mondayDateFullString = date('Y/m/d', strtotime(' + ' . $startDateModifier . ' days'));
+	}
+    
+    $saturdayDate = date('M-j', strtotime($mondayDate . ' +  5 days'));
+	$saturdayDateFullString = date('Y/m/d', strtotime($mondayDate . ' +  5 days'));
+	$fridayDateFullString = date('Y/m/d', strtotime($mondayDate . ' +  4 days'));
+
+	$findWeeksTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targetDate`, NOW()), DAYNAME(`targetDate`) FROM `todoActions` WHERE 
+						(`targetDate` BETWEEN '" . $mondayDateFullString . "' AND '" . $saturdayDateFullString . "' ) AND project='work' ORDER BY `isOpen` DESC, " . $options['entryToSortListBy'];
+	$rows = mysqli_query($db, $findWeeksTasks);
+
+	echo "<p><span style=\"color:var(--strong_text);\">// ----- All WORK Tasks that fall between " . $mondayDateFullString . " and " . $fridayDateFullString . " (" . mysqli_num_rows($rows) . ") </span></p>";
+	printWeeklyReportTaskTable($rows, $db);
+}
 else if ($_POST['action'] == "retrieveTaskForUpdateDisplay")
 {
 	$projectOfInterest = $_POST['project'];
