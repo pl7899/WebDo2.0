@@ -699,11 +699,11 @@ function printWeeklyReportTaskTable($rows, $dataBase) {
 		echo "<td align=\"center\"> " . $row['id'] . "</td>";
 		if($row['isOpen'] != 1) // test for task being closed
 		{
-			echo "<td align=\"center\">Open</td>";
+			echo "<td align=\"center\">Closed</td>";
 		}
 		else 
 		{
-			echo "<td align=\"center\">Closed</td>";
+			echo "<td align=\"center\">Open</td>";
 		}
 		echo "<td align=\"center\">" . $row['priority'] . "</td>";
 //		echo "<td align=\"left\"> a " . $outputSingleBlankLine . " b " . $dateDelta . " c " . $previousDateDelta . " " . "</td>";
