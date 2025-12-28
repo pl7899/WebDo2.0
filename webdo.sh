@@ -65,9 +65,7 @@ if [ "$1" = "--weekly" ] || [ "$1" = "-w" ]
 then
     printf "dumping weekly report for previous week\n"
     
-    returnString=`curl -s --data "action=outputWeeklyReport" https://northridge-studios.com/webdo/webdo_interface.php `
-    echo -ne $returnString
-    #printf "%b" $returnString
+    curl -s --data "action=outputWeeklyReport" https://northridge-studios.com/webdo/webdo_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
 if [ "$1" = "--help" ] || [ "$1" = "-h" ] || [ "$1" = "-H" ]

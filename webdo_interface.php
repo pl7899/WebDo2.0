@@ -646,7 +646,7 @@ function printWeeklyReportTaskTable($rows, $dataBase) {
 	$optionsRead = mysqli_query($dataBase, "SELECT * FROM `todoOptions` WHERE `id`=1");
 	$options = mysqli_fetch_array($optionsRead);
 	
-	echo "<table class=\"alternateColors\" id=\"taskTable\"><tr><th width=\"7%\"> ID </th><th width=\"13%\"> Project </th><th width=\"5%\">Pri</th>";
+	echo "<table class=\"alternateColors\" id=\"taskTable\"><tr><th width=\"7%\"> ID </th><th width=\"13%\"> Status </th><th width=\"5%\">Pri</th>";
 	if($options['showDate'] == 1) {
 		echo "<th width=\"62%\">Task</th><th width=\"13%\"> Due Date </th>";
 	}
@@ -698,6 +698,14 @@ function printWeeklyReportTaskTable($rows, $dataBase) {
 		echo "<tr " . $strikethroughString . $priorityClassString . "onclick=\"retrieveTaskForUpdate(" . $row['id'] . ", null)\">";
 		echo "<td align=\"center\"> " . $row['id'] . "</td>";
 		echo "<td align=\"center\">" . $row['project'] . "</td>";
+		if($row['isOpen'] != 1) // test for task being closed
+		{
+			echo "<td align=\"center\">Open</td>";
+		}
+		else 
+		{
+			echo "<td align=\"center\">Closed</td>";
+		}
 		echo "<td align=\"center\">" . $row['priority'] . "</td>";
 //		echo "<td align=\"left\"> a " . $outputSingleBlankLine . " b " . $dateDelta . " c " . $previousDateDelta . " " . "</td>";
 		echo "<td align=\"left\">" . $row['taskDescription'] . "</td>";		
