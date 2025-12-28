@@ -697,7 +697,6 @@ function printWeeklyReportTaskTable($rows, $dataBase) {
 		}
 		echo "<tr " . $strikethroughString . $priorityClassString . "onclick=\"retrieveTaskForUpdate(" . $row['id'] . ", null)\">";
 		echo "<td align=\"center\"> " . $row['id'] . "</td>";
-		echo "<td align=\"center\">" . $row['project'] . "</td>";
 		if($row['isOpen'] != 1) // test for task being closed
 		{
 			echo "<td align=\"center\">Open</td>";
