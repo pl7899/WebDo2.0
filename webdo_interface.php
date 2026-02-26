@@ -555,9 +555,11 @@ function formatTaskTableJSON($rows, $dataBase) {
 	{
 		return;
 	}
+	$num_rows = mysqli_num_rows($rows);
 
 	echo "{";
 	while ($row = mysqli_fetch_array($rows)) {
+	    $counter++;
 		echo "	{";
 		echo "		\"id\": " . $row['id'] . ",";
 		echo "		\"project\": \"" . $row['project'] . "\",";
@@ -565,7 +567,11 @@ function formatTaskTableJSON($rows, $dataBase) {
 		echo "		\"taskDescription\": \"" . $row['taskDescription'] . "\",";
 		echo "		\"isOpen\": " . $row['isOpen'] . ",";
 		echo "		\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\"";
-		echo "	}";
+		if ($counter == $num_rows) {
+			echo "	}";
+		} else {
+			echo "	},";
+		}
 	}
 	echo "}";
 }
