@@ -557,7 +557,7 @@ function formatTaskTableJSON($rows, $dataBase) {
 	}
 	$num_rows = mysqli_num_rows($rows);
 
-	echo "{";
+	echo "[";
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
 		echo "	{";
@@ -573,7 +573,7 @@ function formatTaskTableJSON($rows, $dataBase) {
 			echo "	},";
 		}
 	}
-	echo "}";
+	echo "]";
 }
 
 function printTaskTable($rows, $dataBase) {
