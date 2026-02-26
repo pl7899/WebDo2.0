@@ -557,7 +557,7 @@ function formatTaskTableJSON($rows, $database) {
 		return;
 	}
 
-	echo "{"
+	echo "{";
 	while ($row = mysqli_fetch_array($rows)) {
 		echo "	\"id\": " . $row['id'] . ",";
 		echo "	\"project\": \"" . $row['project'] . "\",";
