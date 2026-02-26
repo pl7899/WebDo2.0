@@ -558,12 +558,14 @@ function formatTaskTableJSON($rows, $dataBase) {
 
 	echo "{";
 	while ($row = mysqli_fetch_array($rows)) {
-		echo "	\"id\": " . $row['id'] . ",";
-		echo "	\"project\": \"" . $row['project'] . "\",";
-		echo "	\"priority\": " . $row['priority'] . ",";
-		echo "	\"taskDescription\": \"" . $row['taskDescription'] . "\",";
-		echo "	\"isOpen\": " . $row['isOpen'] . ",";
-		echo "	\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\"";
+		echo "	{";
+		echo "		\"id\": " . $row['id'] . ",";
+		echo "		\"project\": \"" . $row['project'] . "\",";
+		echo "		\"priority\": " . $row['priority'] . ",";
+		echo "		\"taskDescription\": \"" . $row['taskDescription'] . "\",";
+		echo "		\"isOpen\": " . $row['isOpen'] . ",";
+		echo "		\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\"";
+		echo "	}";
 	}
 	echo "}";
 }
