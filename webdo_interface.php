@@ -551,7 +551,7 @@ else
 }
 //mysqli_close($db); // this is executed for all if cases
 
-function formatTaskTableJSON($rows, $database) {
+function formatTaskTableJSON($rows, $dataBase) {
 	if($rows == null)
 	{
 		return;
