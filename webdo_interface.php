@@ -138,6 +138,12 @@ elseif ($_POST['action'] == "findTasksByString")
 	echo "<p><span style=\"color:var(--strong_text);\">// ----- Tasks Resulting From a Search For " . $_POST['searchString'] . " </span></p>";
 	printTaskTable($rows, $db);
 }
+elseif ($_POST['action'] == "findTasksByStringJSON")
+{
+	$rows = mysqli_query($db, "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targetDate`, NOW()), DAYNAME(`targetDate`)  FROM `todoActions` WHERE `taskDescription` LIKE '%" . $_POST['searchString'] . "%' ORDER BY `isOpen` DESC, `priority`");
+	echo "<p><span style=\"color:var(--strong_text);\">// ----- Tasks Resulting From a Search For " . $_POST['searchString'] . " </span></p>";
+	formatTaskTableJSON($rows, $db);
+}
 else if ($_POST['action'] == "addTask")
 {
 	$task = $_POST['task'];
@@ -545,6 +551,23 @@ else
 }
 //mysqli_close($db); // this is executed for all if cases
 
+function formatTaskTableJSON($rows, $database) {
+	if($rows == null)
+	{
+		return;
+	}
+
+	echo "{"
+	while ($row = mysqli_fetch_array($rows)) {
+		echo "	\"id\": " . $row['id'] . ",";
+		echo "	\"project\": \"" . $row['project'] . "\",";
+		echo "	\"priority\": " . $row['priority'] . ",";
+		echo "	\"taskDescription\": \"" . $row['taskDescription'] . "\",";
+		echo "	\"isOpen\": " . $row['isOpen'] . ",";
+		echo "	\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\",";
+	}
+	echo "}";
+}
 
 function printTaskTable($rows, $dataBase) {
 	$optionsRead = mysqli_query($dataBase, "SELECT * FROM `todoOptions` WHERE `id`=1");
