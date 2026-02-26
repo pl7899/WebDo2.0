@@ -563,7 +563,7 @@ function formatTaskTableJSON($rows, $dataBase) {
 		echo "	\"priority\": " . $row['priority'] . ",";
 		echo "	\"taskDescription\": \"" . $row['taskDescription'] . "\",";
 		echo "	\"isOpen\": " . $row['isOpen'] . ",";
-		echo "	\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\",";
+		echo "	\"targetDate\": \"" . $row['DATE_FORMAT(`targetDate`, "%b-%d")'] . "\"";
 	}
 	echo "}";
 }
