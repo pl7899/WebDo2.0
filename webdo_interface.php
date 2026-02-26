@@ -141,7 +141,6 @@ elseif ($_POST['action'] == "findTasksByString")
 elseif ($_POST['action'] == "findTasksByStringJSON")
 {
 	$rows = mysqli_query($db, "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targetDate`, NOW()), DAYNAME(`targetDate`)  FROM `todoActions` WHERE `taskDescription` LIKE '%" . $_POST['searchString'] . "%' ORDER BY `isOpen` DESC, `priority`");
-	echo "<p><span style=\"color:var(--strong_text);\">// ----- Tasks Resulting From a Search For " . $_POST['searchString'] . " </span></p>";
 	formatTaskTableJSON($rows, $db);
 }
 else if ($_POST['action'] == "addTask")
